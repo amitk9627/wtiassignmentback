@@ -5,7 +5,7 @@ const {showProduct,deleteProduct,createProduct,updateProduct} =require('../contr
 
 router.get('/list',showProduct);
 router.post('/create',createProduct);
-router.delete('/delete',deleteProduct);
+router.delete('/delete/:id',deleteProduct);
 router.patch('/update',updateProduct);
 
 
