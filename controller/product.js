@@ -56,9 +56,10 @@ const showProduct = async (req, res) => {
 
 }
 const updateProduct = async (req, res) => {
-    const {productId,mobileno}=req.body;
+    const {id}=req.params;
+    const {mobileno}=req.body;
     try{
-        await Products.findByIdAndUpdate(productId,{mobileno:mobileno});
+        await Products.findByIdAndUpdate(id,{mobileno:mobileno});
         res.json({
             status: true,
             message: `mobileno - ${mobileno} updated successfully to product`,
