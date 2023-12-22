@@ -16,13 +16,11 @@ const createProduct = async (req, res) => {
             data: result
         })
     } catch {
-
         res.status(500).json({
             status: true,
             message: "not created"
         })
     }
-
 };
 const deleteProduct = async (req, res) => {
     const { productId } = req.body;
@@ -58,9 +56,18 @@ const showProduct = async (req, res) => {
 
 }
 const updateProduct = async (req, res) => {
-    res.json({
-        status: true,
-        message: "update"
-    })
+    const {productId,mobileno}=req.body;
+    try{
+        await Products.findByIdAndUpdate(productId,{mobileno:mobileno});
+        res.json({
+            status: true,
+            message: `mobileno - ${mobileno} updated successfully to product`,
+        })
+    }catch{
+        res.status(500).json({
+            staus:false,
+            message:"can't update product"
+        })
+    }
 };
 module.exports = { deleteProduct, showProduct, updateProduct, createProduct };
