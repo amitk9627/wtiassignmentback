@@ -15,7 +15,7 @@ const productSchema=({
         type:String,
         required:true
     },
-    phno:{
+    mobileno:{
         type:String,
         required:true
     },

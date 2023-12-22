@@ -1,10 +1,11 @@
 const express=require('express');
 const cors=require('cors');
-const productRoutes=require('./controller/product.js')
+
 const app=express();
+const productRoutes=require('./routes/product.js')
 app.use(cors());
 app.use(express.json());
-app.use(productRoutes);
 
+app.use(productRoutes);
 
 module.exports=app;
